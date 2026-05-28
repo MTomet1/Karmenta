@@ -165,8 +165,8 @@ $rates    = get_exchange_rates();              // vanjski API #1 (tečaj), null 
 </div>
 
 <script>
-const images  = [<?php foreach ($images as $img): ?>"Gallery/cars/<?= htmlspecialchars($img, ENT_QUOTES) ?>",<?php endforeach; ?>];
-let   current = 0;
+var images  = [<?php foreach ($images as $img): ?>"Gallery/cars/<?= htmlspecialchars($img, ENT_QUOTES) ?>",<?php endforeach; ?>];
+var current = 0;
 
 function setMain(index) {
     current = index;
@@ -190,12 +190,16 @@ function nextImage(e) { if (e) e.stopPropagation(); current = (current + 1) % im
 function prevImage(e) { if (e) e.stopPropagation(); current = (current - 1 + images.length) % images.length; document.getElementById('galleryImage').src = images[current]; }
 function backdropClose(e) { if (e.target.id === 'galleryModal') closeGallery(); }
 
-document.addEventListener('keydown', e => {
-    if (document.getElementById('galleryModal').style.display !== 'block') return;
-    if (e.key === 'ArrowRight') nextImage();
-    if (e.key === 'ArrowLeft')  prevImage();
-    if (e.key === 'Escape')     closeGallery();
-});
+if (!window.__cdGalleryKeyBound) {
+    window.__cdGalleryKeyBound = true;
+    document.addEventListener('keydown', e => {
+        const gm = document.getElementById('galleryModal');
+        if (!gm || gm.style.display !== 'block') return;
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft')  prevImage();
+        if (e.key === 'Escape')     closeGallery();
+    });
+}
 
 /* Wishlist sync */
 (function () {
