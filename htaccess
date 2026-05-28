@@ -1,0 +1,86 @@
+# ===============================
+# FORCE HTTPS
+# ===============================
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ===============================
+# SECURITY HEADERS (A+)
+# ===============================
+<IfModule mod_headers.c>
+
+# Clickjacking
+Header always set X-Frame-Options "DENY"
+
+# MIME sniffing
+Header always set X-Content-Type-Options "nosniff"
+
+# Referrer
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+# Permissions
+Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
+
+# HTTPS hardening
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+# Cache transform protection
+Header always set Cache-Control "no-transform"
+
+# -------------------------------
+# Content Security Policy (A+)
+# -------------------------------
+Header always set Content-Security-Policy "
+default-src 'self';
+base-uri 'self';
+form-action 'self';
+frame-ancestors 'none';
+object-src 'none';
+upgrade-insecure-requests;
+
+img-src 'self' data: blob:
+https://maps.gstatic.com
+https://www.gstatic.com;
+
+script-src 'self' 'unsafe-inline'
+https://ajax.googleapis.com
+https://cdn.jsdelivr.net
+https://stackpath.bootstrapcdn.com
+https://maxcdn.bootstrapcdn.com
+https://maps.googleapis.com
+https://maps.gstatic.com
+https://www.google.com
+https://www.gstatic.com;
+
+style-src 'self' 'unsafe-inline'
+https://fonts.googleapis.com
+https://stackpath.bootstrapcdn.com
+https://maxcdn.bootstrapcdn.com;
+
+font-src 'self' data:
+https://fonts.gstatic.com;
+
+frame-src
+https://www.google.com
+https://www.google.hr
+https://recaptcha.google.com;
+
+connect-src 'self'
+https://maps.googleapis.com
+https://www.google.com
+https://www.gstatic.com;
+"
+
+</IfModule>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php84” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php84 .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

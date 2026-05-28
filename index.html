@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registracija besplatne.hr domene</title>
+<base href="https://besplatna.hr/">
+
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background: url("https://besplatna.hr/wp-content/uploads/2023/08/server-intro.jpg") center/cover no-repeat;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding-top: 40px;
+  }
+
+  .logo {
+    width: 600px;
+    max-width: 90%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #00ffc4;
+    margin: 10px 0;
+  }
+
+  .intro-text {
+    font-size: 17px;
+    font-weight: 300;
+    max-width: 700px;
+    line-height: 1.6;
+    color: #d1d5db;
+    margin-bottom: 30px;
+  }
+
+  h4, h5 {
+    font-weight: 300;
+    margin: 0;
+    color: #fff;
+  }
+
+  h4 {
+    font-size: 19px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+
+  .col {
+    flex: 1 1 300px;
+    max-width: 460px;
+    background: linear-gradient(128deg, #65d5b6 0%, #00ffc4 100%);
+    border-radius: 8px;
+    padding: 20px 25px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: all 0.25s ease;
+  }
+
+  .icon {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    flex-shrink: 0;
+  }
+
+  span.info a {
+    color: #fff;
+    font-size: 21px;
+    font-weight: 700;
+    text-decoration: none;
+    line-height: 1.4;
+  }
+
+  .footer {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .footer img {
+    width: 250px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+  }
+
+  .footer h5 {
+    font-size: 19px;
+    font-weight: 300;
+  }
+
+  /* ---------- MOBILNA VERZIJA ---------- */
+@media (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+    background-attachment: fixed;
+  }
+
+  .wrapper {
+    padding-top: 25px; /* logo i naslov lagano više gore */
+  }
+
+  .logo {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 17px;
+    line-height: 1.3;
+    padding: 0 12px;
+    margin: 8px 0 12px;
+    color: #00ffc4;
+  }
+
+  .intro-text {
+    font-size: 15px;
+    line-height: 1.45;
+    padding: 0 15px;
+    margin-bottom: 22px;
+    max-width: 350px;
+  }
+
+  /* 🔹 Gumbi jedan kraj drugoga, ali zračnije */
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 14px;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto 40px auto; /* više prostora ispod gumba */
+  }
+
+  .col {
+    flex: 1 1 48%;
+    max-width: 48%;
+    padding: 12px 0 10px 0;
+    border: 1.5px solid #00ffc4;
+    border-radius: 10px;
+    background: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+    transition: all 0.25s ease;
+  }
+
+  .col:hover,
+  .col:active {
+    background-color: rgba(0, 255, 196, 0.05);
+    box-shadow: 0 0 8px 1px rgba(0, 255, 196, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .icon {
+    margin: 0 0 4px 0;
+    width: 30px;
+    height: 30px;
+  }
+
+  h4 {
+    font-size: 13px;
+    margin-bottom: 0;
+    line-height: 1.1;
+  }
+
+  span.info a {
+    font-size: 12.5px;
+    line-height: 1.2;
+  }
+
+  /* 🔹 Footer niže + više zraka ispod gumba */
+  .footer {
+    margin-top: 30px;
+    margin-bottom: 25px;
+  }
+
+  .footer h5 {
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  .footer img {
+    width: 150px;
+    margin-top: 6px;
+  }
+
+  .powered {
+    font-size: 1rem;
+  }
+}
+/* Samo desktop verzija (šire od 1024px) */
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .wrapper {
+    margin-top: 40px;       /* spušta sve malo dolje */
+  }
+
+  .container {
+    margin-bottom: 70px;    /* više razmaka ispod gumba */
+  }
+
+  .footer {
+    margin-top: 40px;       /* footer niže */
+    margin-bottom: 30px;
+  }
+
+  .footer img {
+    margin-top: 8px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <a href="https://besplatna.hr">
+      <img class="logo" src="https://besplatna.hr/wp-content/uploads/2023/08/besplatna_logo_intro.png" alt="Logo Besplatna.hr">
+    </a>
+
+    <h2>Tvoja besplatna .hr domena, hosting, email i web – brzo i jednostavno.</h2>
+
+    <p class="intro-text">
+      Besplatna.hr je tehnički servis i podrška za tvrtke, obrte i udruge koje žele iskoristiti svoje pravo na besplatnu .hr domenu putem CARNet sustava.
+    </p>
+
+    <div class="container">
+      <div class="col">
+        <img class="icon" src="https://besplatna.hr/wp-content/uploads/2021/09/wd-phone-light.svg" alt="Telefon">
+        <div>
+          <h4>NAZOVITE NAS</h4>
+          <span class="info"><a href="tel:0915012622">091 501 2622</a></span>
+        </div>
+      </div>
+
+      <div class="col">
+        <img class="icon" src="https://besplatna.hr/wp-content/uploads/2021/09/wd-envelope-light.svg" alt="E-mail">
+        <div>
+          <h4>PIŠITE NAM</h4>
+          <span class="info"><a href="mailto:domene@besplatna.hr">domene@besplatna.hr</a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <h5>POWERED BY</h5>
+      <a href="https://kuhada.com">
+        <img src="https://kuhada.com/wp-content/uploads/2021/09/KUHADA-LOGO-RESNER-nara-bijeli.png" alt="Kuhada logo">
+      </a>
+      <a href="https://besplatna.hr/wordpress-uz-litespeed-tehnologiju-je-do-84-puta-brzi/">
+        <h5>WordPress je uz LiteSpeed do 84 puta brži</h5>
+        <img src="https://kuhada.com/wp-content/uploads/2021/09/host-provider-label.png" alt="LiteSpeed logo">
+      </a>
+    </div>
+  </div>
+</body>
+</html>

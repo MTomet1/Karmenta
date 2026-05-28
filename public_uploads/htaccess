@@ -1,0 +1,6 @@
+# Prevent code execution in public_uploads
+<FilesMatch "\.(php|php\d+|phtml|phar)$">
+  Require all denied
+</FilesMatch>
+php_flag engine off
+Options -ExecCGI

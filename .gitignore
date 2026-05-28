@@ -1,0 +1,20 @@
+# Logs
+error_log
+*.log
+
+# Large media files
+Gallery/*.mp4
+Gallery/*.avi
+Gallery/*.mov
+
+# Database dumps
+karmenta_local.sql
+karment1_wp_ukjyo.sql
+
+# Sensitive config (local only)
+config.php
+
+# Editor/IDE (local only)
+.claude/
+.vscode/
+.idea/
