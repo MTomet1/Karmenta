@@ -15,6 +15,5 @@ karment1_wp_ukjyo.sql
 config.php
 
 # Editor/IDE (local only)
-.claude/
 .vscode/
 .idea/
