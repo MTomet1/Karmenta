@@ -9,7 +9,7 @@ Gallery/*.mov
 
 # Database dumps
 karmenta_local.sql
-karment1_wp_ukjyo.sql
+
 
 # Sensitive config (local only)
 config.php
